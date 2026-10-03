@@ -1,0 +1,44 @@
+{
+  "summary": "额度卡现在带上了稳定的定位信息（data-card），菜单栏用量格子的点击可以把面板切到「额度」标签、滚动到并高亮对应卡片，主窗口也能按 card/provider 直接打开用量概览；高亮动画复用到订阅卡和面板额度卡上。",
+  "scenes": [
+    {
+      "title": "面板「额度」里的余额卡",
+      "shots": [
+        {
+          "file": "01-panel-agents-tab.png",
+          "caption": "面板打开时停在「Agent」标签",
+          "width": 2560
+        },
+        {
+          "file": "02-panel-quota-deepseek.png",
+          "caption": "面板「额度」里的 DeepSeek 余额卡（菜单栏格子点击会定位到这类卡片）",
+          "width": 1340
+        }
+      ]
+    },
+    {
+      "title": "主窗口用量概览的额度卡",
+      "shots": [
+        {
+          "file": "03-window-usage-pane.png",
+          "caption": "主窗口「用量 · 概览」的额度区",
+          "width": 2560
+        },
+        {
+          "file": "04-window-quota-card.png",
+          "caption": "概览里的 DeepSeek 额度卡：托盘设为「窗口」时从菜单栏打开会落在这里",
+          "width": 2560
+        }
+      ]
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "",
+  "unseen": "沙盒里只有 DeepSeek（仅余额，没有百分比额度和 reset 时间），没有 Claude/Codex 等订阅账号，所以「点击 claude 切到额度并高亮」这类带额度窗口的卡片看不到；菜单栏格子的点击本身是 macOS 原生状态项行为，浏览器里无法触发，因此自动切换标签、滚动到卡片和高亮（flash）动画都录不出来，只能录到它最终会落到的位置：面板的「额度」标签和主窗口用量概览的额度卡。",
+  "interactive": true,
+  "pages": 2
+}

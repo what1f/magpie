@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#664 界面预览 · 9b5d5d2</title>
+<style>:root{color-scheme:light dark;--bg:#f6f6f7;--fg:#1d1d1f;--muted:#6e6e73;--card:#fff;--line:#e5e5ea}
+@media (prefers-color-scheme:dark){:root{--bg:#111113;--fg:#f2f2f4;--muted:#9a9aa0;--card:#1c1c1f;--line:#2c2c30}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:28px 16px 60px}h1{font-size:20px;margin:0 0 4px}.m{color:var(--muted);font-size:13px;margin:0 0 20px}
+video,img{display:block;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card)}figure{margin:0 0 28px}figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+a{color:inherit}</style>
+<main><h1>#664 界面预览</h1><p class="m">commit 9b5d5d2 · <a href="https://github.com/yetone/magpie/pull/664">回到 PR</a> · app.js 里用量概览的读取改了：loadUsage 与 refreshUsage 共用一个读取序号，只有最新一次读取才写入页面，且要求页面、标签和周期都没变；另外供应商列表拉取中的轮询在读取失败或重载失败后会重新排下一次。其余改动是 internal/plugin 的 Go 代码、Makefile/CI 与测试，界面看不见。</p>
+<figure><video src="preview.mp4" controls autoplay muted playsinline poster="poster.png"></video><figcaption>红线是鼠标走过的轨迹，红色圆环是一次点击；底部文字是这一步在做什么。空格暂停，← → 逐段查看。</figcaption></figure>
+<figure><img src="01-usage-today.png" alt="用量页概览，周期在「今天」"><figcaption>用量概览的周期与刷新读取 · 用量页概览，周期在「今天」</figcaption></figure>
+<figure><img src="02-usage-7d.png" alt="「7 天」这一次读取之后的概览"><figcaption>用量概览的周期与刷新读取 · 「7 天」这一次读取之后的概览</figcaption></figure>
+<figure><img src="03-usage-after-reload.png" alt="「立即刷新」之后的概览"><figcaption>用量概览的周期与刷新读取 · 「立即刷新」之后的概览</figcaption></figure>
+<figure><img src="04-usage-requests-tab.png" alt="「请求」标签的画面"><figcaption>用量概览的周期与刷新读取 · 「请求」标签的画面</figcaption></figure>
+<figure><img src="05-usage-back-overview.png" alt="切回「概览」之后的用量与图表"><figcaption>用量概览的周期与刷新读取 · 切回「概览」之后的用量与图表</figcaption></figure>
+<figure><img src="06-providers-deepseek.png" alt="供应商页——账号列表拉取中时反复重读的就是这个页面"><figcaption>供应商列表拉取中的重复读取所在页 · 供应商页——账号列表拉取中时反复重读的就是这个页面</figcaption></figure>
+</main></html>

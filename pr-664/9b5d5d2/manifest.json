@@ -1,0 +1,54 @@
+{
+  "summary": "app.js 里用量概览的读取改了：loadUsage 与 refreshUsage 共用一个读取序号，只有最新一次读取才写入页面，且要求页面、标签和周期都没变；另外供应商列表拉取中的轮询在读取失败或重载失败后会重新排下一次。其余改动是 internal/plugin 的 Go 代码、Makefile/CI 与测试，界面看不见。",
+  "scenes": [
+    {
+      "title": "用量概览的周期与刷新读取",
+      "shots": [
+        {
+          "file": "01-usage-today.png",
+          "caption": "用量页概览，周期在「今天」",
+          "width": 2560
+        },
+        {
+          "file": "02-usage-7d.png",
+          "caption": "「7 天」这一次读取之后的概览",
+          "width": 2560
+        },
+        {
+          "file": "03-usage-after-reload.png",
+          "caption": "「立即刷新」之后的概览",
+          "width": 2560
+        },
+        {
+          "file": "04-usage-requests-tab.png",
+          "caption": "「请求」标签的画面",
+          "width": 2560
+        },
+        {
+          "file": "05-usage-back-overview.png",
+          "caption": "切回「概览」之后的用量与图表",
+          "width": 2560
+        }
+      ]
+    },
+    {
+      "title": "供应商列表拉取中的重复读取所在页",
+      "shots": [
+        {
+          "file": "06-providers-deepseek.png",
+          "caption": "供应商页——账号列表拉取中时反复重读的就是这个页面",
+          "width": 2560
+        }
+      ]
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "",
+  "unseen": "这次改动防的都是竞态：本地沙盒里 DeepSeek 的应答都在毫秒级返回，看不到「旧周期的答案晚到、被丢弃不画」或「被取代的选中读取留下的骨架屏由定时读取结束」；供应商列表的重复读取只在后端说账号列表仍在拉取（fetching）时才会轮询，本沙盒只有 DeepSeek 且列表已读完，触发不了。这两处的浏览器/无浏览器用例分别在 usage-refresh-flight.test.cjs、usage-stale-answer.test.cjs 与 providers-fetching-retry.test.cjs 里。",
+  "interactive": true,
+  "pages": 2
+}
